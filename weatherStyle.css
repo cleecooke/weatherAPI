@@ -1,0 +1,26 @@
+h1 {
+    color: purple;
+}
+
+
+body {
+    text-align: center;
+    color:rgb(36, 3, 68);
+    background-color: rgb(199, 227, 255)
+
+}
+p {
+
+    columns:;
+}
+
+#finalResult {
+    color: blueviolet;
+    border: darkgreen solid 7px;
+    padding: 5px;
+}
+
+#resultingWeather {
+    color: rgb(3, 71, 15);
+    font-size: x-large;
+}

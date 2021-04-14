@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather API Project</title>
+    <link rel="stylesheet" href="weatherStyle.css">
+    
+</head>
+<body>
+    <h1>What's The Weather Like In:</h1>
+
+    <form>
+        <input id="weatherForm" type="text">
+
+       <button id="getWeather" onclick="get()">
+            Get Weather
+       </button>
+        <button type="reset" id="clear"> 
+            Clear
+        </button>
+        <br>
+
+    </form>
+
+    
+    <div id="finalResult">
+        <h2>Weather Report</h2>
+        <p id="locationEntered">***</p>
+        <p id="resultingWeather">***</p>
+    
+    </div>
+    <script src="weatherScript.js"></script>
+</body>
+</html>
