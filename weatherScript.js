@@ -1,31 +1,4 @@
 const weatherKey    = "99ea07c8eacd76729ba235b926177bbb";
-let inputVal = document.getElementById("weatherForm").value;
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=Denver&appid=${weatherKey}`)
-.then(function(response) {
-    return response.json();
-    }
-)
-.then(function(data) {
-    console.log(data);
-    // let cityName = data("city");
-    // let degreeType = data.main.temp.unit.value; 
-    // let cityWeather = data.main.temp.value; // on openweather JSON example, this is in Kelvin?
-    // let weatherFeels = data.main.feels_like.value;  //also in Kelvin?
-    // let weatherDescrip = data.weather.description.value;
-    
-    }
-)
-.catch(function(err) {
-console.log(err);
-}
-);
-
-// let (get value of location user input)
-// "fetch" = Get?  make query string (url)
-
-
-// Sumit used, Used "template literals"? back tick, not qoutes.
-// can use $ and run things within the string?
 
 // const weather = {
 //     temperature: {
@@ -35,16 +8,38 @@ console.log(err);
 //     location: ""
 // };
 
-var weatherForm = document.getElementById("weatherForm");
-
-
-
-
-//weatherForm.addEventListener("submit", function(event) {
-  //  event.preventDefault();
-//});
 
 function get() {
+    let inputVal = document.getElementById("weatherForm").value;
+    let weatherLocal = document.querySelector("#location-Entered");
+    let weatherTemp = document.querySelector("#resulting-Temp");
+    let weatherFeel = document.querySelector("#feels-like");
+    let weatherDesc = document.querySelector("#weather-description");
+
+        console.log(inputVal);
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${weatherKey}`)
+        .then(function(response) {
+            return response.json();
+        }
+    )
+    .then(function(data) {
+        console.log(data);
+        let cityName = data["city"];
+        let cityWeather = data["main"]["temp"];  // on openweather JSON example, this is in Kelvin?
+        let weatherFeels = data.main.feels_like.value;  //also in Kelvin?
+        let weatherDescrip = data["weather"][0]["description"];
+
+        weatherLocal.innerHTML = cityName;
+        weatherTemp.innerHTML = cityWeather;
+        weatherFeel.innerHTML = weatherFeels;
+        weatherDesc.innerHTML = weatherDescrip;
+    }
+)
+.catch(function(err) {
+console.log(err);
+}
+);
         // let locationDisplay = document.getElementById("locationEntered");
         // let weatherDisplay = document.getElementId("resultingWeather");
         // let i = 0;
